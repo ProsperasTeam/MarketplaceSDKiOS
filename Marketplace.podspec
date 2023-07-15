@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "MarketplaceSDK"
+  spec.name         = "Marketplace"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of MarketplaceSDK."
 
@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/MarketplaceSDK"
+  spec.homepage     = "https://prosperas.com"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -63,6 +63,8 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
+  spec.platform = :ios
+  spec.ios.deployment_target = '13.0'
   # spec.platform     = :ios
   # spec.platform     = :ios, "5.0"
 
