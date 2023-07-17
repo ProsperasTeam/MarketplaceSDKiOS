@@ -9,23 +9,26 @@
 import UIKit
 import WebKit
 
-class MarketplaceViewController: UIViewController, WKUIDelegate {
+public class MarketplaceViewController: UIViewController, WKUIDelegate {
     public var apikey = "f0627e97-48fb-456b-ba05-c20ce8c56105"
     public var locale = "es-rMX"
     public var sessionId = "d/fvIRnSFf2gQslGnCVm/pz7u8K5JTkEFY5w7KJ1rSawvF0tFj68wuL+Zuy2DrEkr8I/dqUj27iW0fg4RyMaU+jsqimIAsTVZnJjjYWpymAwyFRXa7rZyk8nz0jL1DWG"
     public var urlBase = "https://creditos-web.prosperas.com"
     
-    private final var sizeMetric : Int = 9
+    private final var sizeMetric : Int = 6
     
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var webView: WKWebView!
     //var topBar : CGRect!
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
             return .portrait
         }
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.modalPresentationStyle = .fullScreen
+        
         overrideUserInterfaceStyle = .light
         if (locale == "en-rUS"){
             self.regresarButton.setTitle( "Back", for: .normal)
@@ -106,7 +109,9 @@ class MarketplaceViewController: UIViewController, WKUIDelegate {
     }
     @objc func clickPrevTapped()
     {
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        //self.navigationController?.popToRootViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
     }
 }
 
