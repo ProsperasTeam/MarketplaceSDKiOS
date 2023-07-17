@@ -79,8 +79,9 @@ A Storyboard is not necessary for popping up the MarketplaceSDK PWA's ViewContro
 
 ## Updating
 From the terminal, in the root of your project directory, execute the following commands, making sure to completely exit XCode beforehand
-`pod deintegrate` 
-`pod update`
+
+    pod deintegrate 
+    pod update
 
 ## Example App
 An example application is available to demonstrate how to integrate into your application, for your reference
