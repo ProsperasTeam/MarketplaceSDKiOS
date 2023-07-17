@@ -40,44 +40,50 @@ An example podfile is available to you at https://github.com/ProsperasTeam/WebVi
 
 A Storyboard is not necessary for popping up the MarketplaceSDK PWA's ViewController. The following demonstrates how to call the view from an initial ViewController
 
+There are four public variables in the MarketplaceViewController class that you will want to set for the ViewController to properly render your application area:
+* sessionId
+* apikey
+* locale
+* urlBase
 
-    import UIKit
-    import Marketplace
 
-    class ViewController: UIViewController {
+        import UIKit
+        import Marketplace
 
-      @IBOutlet weak var Button1: UIButton!
-      var apikey = ""
-      var sessionId = ""
-      var locale = ""
+        class ViewController: UIViewController {
+
+          @IBOutlet weak var Button1: UIButton!
+          var apikey = ""
+          var sessionId = ""
+          var locale = ""
     
     
-      @IBOutlet weak var apikeyText: UITextField!
+          @IBOutlet weak var apikeyText: UITextField!
     
-      @IBOutlet weak var localeText: UITextField!
-      @IBOutlet weak var sessionIdText: UITextField!
-      override func viewDidLoad() {
-          super.viewDidLoad()
-          overrideUserInterfaceStyle = .light
+          @IBOutlet weak var localeText: UITextField!
+          @IBOutlet weak var sessionIdText: UITextField!
+          override func viewDidLoad() {
+              super.viewDidLoad()
+              overrideUserInterfaceStyle = .light
         
-          apikeyText.text = "YOUR API KEY"
-          localeText.text = "es-rMX"
-          sessionIdText.text = "Valid User SessionID"
+              apikeyText.text = "YOUR API KEY"
+              localeText.text = "es-rMX"
+              sessionIdText.text = "Valid User SessionID"
 
-          // Do any additional setup after loading the view.
-      }
+              // Do any additional setup after loading the view.
+          }
 
-      @IBAction func goWebView(_ sender: Any) {
+          @IBAction func goWebView(_ sender: Any) {
         
-          let vc = MarketplaceViewController()
-          vc.sessionId = sessionIdText.text ?? "Valid Session ID"
-          vc.apikey  = apikeyText.text ?? "Valid API Key"
-          vc.locale = localeText.text ?? "Valid Locale such as es-rMX or en-rUS"
-          vc.urlBase = "https://creditos-web.prosperas.com"
-          vc.modalPresentationStyle = .fullScreen
-          self.present(vc, animated: true)
-      }
-    }
+              let vc = MarketplaceViewController()
+              vc.sessionId = sessionIdText.text ?? "Valid Session ID"
+              vc.apikey  = apikeyText.text ?? "Valid API Key"
+              vc.locale = localeText.text ?? "Valid Locale such as es-rMX or en-rUS"
+              vc.urlBase = "https://creditos-web.prosperas.com"
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+          }
+        }
 
 
 
