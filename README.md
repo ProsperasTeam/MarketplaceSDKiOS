@@ -70,6 +70,10 @@ A Storyboard is not necessary for popping up the MarketplaceSDK PWA's ViewContro
       @IBAction func goWebView(_ sender: Any) {
         
           let vc = MarketplaceViewController()
+          vc.sessionId = sessionIdText.text ?? "Valid Session ID"
+          vc.apikey  = apikeyText.text ?? "Valid API Key"
+          vc.locale = localeText.text ?? "Valid Locale such as es-rMX or en-rUS"
+          vc.urlBase = "https://creditos-web.prosperas.com"
           vc.modalPresentationStyle = .fullScreen
           self.present(vc, animated: true)
       }
