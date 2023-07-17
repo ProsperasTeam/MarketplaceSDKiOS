@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Marketplace"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.5"
   spec.summary      = "This is the Prosperas Marketplace SDK"
 
   # This description is used to generate tags and improve search results.
@@ -29,7 +29,6 @@ Pod::Spec.new do |spec|
                    DESC
 
   spec.homepage     = "https://prosperas.com"
-  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -39,7 +38,6 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  #spec.license      = "MIT (example)"
   spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -107,7 +105,7 @@ Pod::Spec.new do |spec|
   #  non-essential files like tests, examples and documentation.
   #
 
-  spec.resource  = "Marketplace.storyboard"
+  # spec.resource  = "Marketplace.storyboard"
   # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
@@ -136,5 +134,8 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+  spec.info_plist = {
+    "NSCameraUsageDescription" => "Necessary for uploading user documents and photos to their storage area"
+    }
 
 end
