@@ -15,7 +15,8 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     public var sessionId = "d/fvIRnSFf2gQslGnCVm/pz7u8K5JTkEFY5w7KJ1rSawvF0tFj68wuL+Zuy2DrEkr8I/dqUj27iW0fg4RyMaU+jsqimIAsTVZnJjjYWpymAwyFRXa7rZyk8nz0jL1DWG"
     public var urlBase = "https://creditos-web.prosperas.com"
     
-    private final var sizeMetric : Int = 6
+    private final var sizeMetric : Int = 10
+    private final var sizeMetricButtons : Int = 25
     
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
@@ -59,11 +60,12 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
                             width: self.view.frame.size.width/2,
                             height: self.view.frame.height/CGFloat(sizeMetric))
         
-        let colorView = UIView(frame: topBarLeft)
-        colorView.backgroundColor = .red
         //2. Provide the frame to the button
         regresarButton.frame = topBarLeft
-        
+        regresarButton.contentHorizontalAlignment = .left
+        regresarButton.contentVerticalAlignment = .center
+        regresarButton.titleEdgeInsets.left = self.view.frame.size.width/CGFloat(sizeMetricButtons); // add left padding.
+        regresarButton.titleEdgeInsets.top = self.view.frame.size.height/CGFloat(sizeMetricButtons); // add right padding.
         //3. Customise the view attributes
         regresarButton.addTarget(self, action: #selector(MarketplaceViewController.clickMeTapped), for: UIControl.Event.touchDown)
         
@@ -80,6 +82,10 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         
         //2. Provide the frame to the button
         leaveButton.frame = topBarRight
+        leaveButton.contentHorizontalAlignment = .right
+        leaveButton.titleEdgeInsets.right = self.view.frame.size.width/CGFloat(sizeMetricButtons); // add right padding.
+        leaveButton.titleEdgeInsets.top = self.view.frame.size.height/CGFloat(sizeMetricButtons); // add right padding.
+        leaveButton.contentVerticalAlignment = .center
         //3. Customise the view attributes
         leaveButton.addTarget(self, action: #selector(MarketplaceViewController.clickPrevTapped), for: UIControl.Event.touchDown)
         
@@ -88,7 +94,8 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     }
     func createWebview()
     {
-        webView = WKWebView(frame: CGRect(x: 0.0, y: self.view.frame.height/CGFloat(sizeMetric), width: self.view.frame.size.width, height: self.view.frame.height - (self.view.frame.height/CGFloat(sizeMetric))))
+        webView = WKWebView(frame: CGRect(x: 0.0, y: self.view.frame.height/CGFloat(sizeMetric), width: self.view.frame.size.width, height: self.view.frame.height - 
+(self.view.frame.height/CGFloat(sizeMetric))))
         webView.uiDelegate = self
         self.view.addSubview(webView)
         let myURL = URL(string: urlBase + "?sessionid=\(sessionId)&apikey=\(apikey)&locale=\(locale)")
@@ -110,8 +117,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     @objc func clickPrevTapped()
     {
         dismiss(animated: true, completion: nil)
-        //self.navigationController?.popToRootViewController(animated: true)
-        //self.navigationController?.popViewController(animated: true)
     }
 }
+
 
