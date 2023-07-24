@@ -21,6 +21,12 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var webView: WKWebView!
+    var nativeButtonColor: UIColor = UIColor(rgb: 0xBE5300)
+    
+    public func setNativeButtonColor(rgb: UInt)
+    {
+        nativeButtonColor = UIColor(rgb: rgb)
+    }
     //var topBar : CGRect!
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
             return .portrait
@@ -66,6 +72,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         regresarButton.contentVerticalAlignment = .center
         regresarButton.titleEdgeInsets.left = self.view.frame.size.width/CGFloat(sizeMetricButtons); // add left padding.
         regresarButton.titleEdgeInsets.top = self.view.frame.size.height/CGFloat(sizeMetricButtons); // add right padding.
+        regresarButton.setTitleColor(nativeButtonColor, for: .normal	)
         //3. Customise the view attributes
         regresarButton.addTarget(self, action: #selector(MarketplaceViewController.clickMeTapped), for: UIControl.Event.touchDown)
         
@@ -86,6 +93,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         leaveButton.titleEdgeInsets.right = self.view.frame.size.width/CGFloat(sizeMetricButtons); // add right padding.
         leaveButton.titleEdgeInsets.top = self.view.frame.size.height/CGFloat(sizeMetricButtons); // add right padding.
         leaveButton.contentVerticalAlignment = .center
+        leaveButton.setTitleColor(nativeButtonColor, for: .normal    )
         //3. Customise the view attributes
         leaveButton.addTarget(self, action: #selector(MarketplaceViewController.clickPrevTapped), for: UIControl.Event.touchDown)
         
@@ -119,5 +127,19 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
+extension UIColor {
 
+    convenience init(rgb: UInt) {
+        self.init(rgb: rgb, alpha: 1.0)
+    }
+
+    convenience init(rgb: UInt, alpha: CGFloat) {
+        self.init(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: CGFloat(alpha)
+        )
+    }
+}
 
