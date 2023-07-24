@@ -53,7 +53,7 @@ An example podfile is available to you at https://github.com/ProsperasTeam/WebVi
       use_frameworks!
 
       # Pods for Marketplace Webview
-      pod 'Marketplace', :git => 'https://github.com/ProsperasTeam/MarketplaceSDKiOS.git', :branch => 'release', :tag => '1.0.6'
+      pod 'Marketplace', :git => 'https://github.com/ProsperasTeam/MarketplaceSDKiOS.git', :branch => 'release', :tag => '<latest tag>'
     
       target 'Marketplace WebviewTests' do
         inherit! :search_paths
@@ -83,6 +83,7 @@ There are four public variables in the MarketplaceViewController class that you 
 * apikey
 * locale
 * urlBase
+* Native Button Coloring (Hex Color Code)
 
 
         import UIKit
@@ -118,6 +119,7 @@ There are four public variables in the MarketplaceViewController class that you 
               vc.apikey  = apikeyText.text ?? "Valid API Key"
               vc.locale = localeText.text ?? "Valid Locale such as es-rMX or en-rUS"
               vc.urlBase = "https://creditos-web.prosperas.com"
+              vc.setNativeButtonColor(rgb: 0xBE5300)
               vc.modalPresentationStyle = .fullScreen
               self.present(vc, animated: true)
           }
