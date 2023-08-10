@@ -98,8 +98,26 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         self.view.addSubview(webView)
     }
     func abrirSDK(){
+        //my code
+        let webConfiguration = WKWebViewConfiguration()
+                webConfiguration.ignoresViewportScaleLimits = true
+                webConfiguration.suppressesIncrementalRendering = true
+                webConfiguration.allowsInlineMediaPlayback = true
+                webConfiguration.allowsAirPlayForMediaPlayback = false
+                webConfiguration.allowsPictureInPictureMediaPlayback = true
+                webConfiguration.mediaTypesRequiringUserActionForPlayback = .all
+                webConfiguration.requiresUserActionForMediaPlayback = true
+        
+        webView = WKWebView(frame:  CGRect(x: 0.0, y: 60, width: self.view.frame.size.width, height: self.view.frame.height), configuration: webConfiguration)
+        
+        self.view.addSubview(webView)
+               view = webView
+
+        //
         let myURL = URL(string: urlBase + "?sessionid=\(sessionId)&apikey=\(apikey)&locale=\(locale)")
         let myURLRequest:URLRequest = URLRequest(url: myURL!)
+        webView.customUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1"
+
         webView.load(myURLRequest)
         webView.allowsBackForwardNavigationGestures = true
     }
