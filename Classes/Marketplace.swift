@@ -88,7 +88,17 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     }
     func createWebview()
     {
-        webView = WKWebView(frame: CGRect(x: 0.0, y: self.view.frame.height/CGFloat(sizeMetric), width: self.view.frame.size.width, height: self.view.frame.height - (self.view.frame.height/CGFloat(sizeMetric))))
+        //my code
+        let webConfiguration = WKWebViewConfiguration()
+                webConfiguration.ignoresViewportScaleLimits = true
+                webConfiguration.suppressesIncrementalRendering = true
+                webConfiguration.allowsInlineMediaPlayback = true
+                webConfiguration.allowsAirPlayForMediaPlayback = false
+                webConfiguration.allowsPictureInPictureMediaPlayback = true
+                webConfiguration.mediaTypesRequiringUserActionForPlayback = .all
+                webConfiguration.requiresUserActionForMediaPlayback = true
+        //
+        webView = WKWebView(frame: CGRect(x: 0.0, y: self.view.frame.height/CGFloat(sizeMetric), width: self.view.frame.size.width, height: self.view.frame.height - (self.view.frame.height/CGFloat(sizeMetric))), configuration: webConfiguration)
         webView.uiDelegate = self
         self.view.addSubview(webView)
         let myURL = URL(string: urlBase + "?sessionid=\(sessionId)&apikey=\(apikey)&locale=\(locale)")
@@ -99,19 +109,12 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     }
     func abrirSDK(){
         //my code
-        let webConfiguration = WKWebViewConfiguration()
-                webConfiguration.ignoresViewportScaleLimits = true
-                webConfiguration.suppressesIncrementalRendering = true
-                webConfiguration.allowsInlineMediaPlayback = true
-                webConfiguration.allowsAirPlayForMediaPlayback = false
-                webConfiguration.allowsPictureInPictureMediaPlayback = true
-                webConfiguration.mediaTypesRequiringUserActionForPlayback = .all
-                webConfiguration.requiresUserActionForMediaPlayback = true
         
-        webView = WKWebView(frame:  CGRect(x: 0.0, y: 60, width: self.view.frame.size.width, height: self.view.frame.height), configuration: webConfiguration)
+        
+       /* webView = WKWebView(frame:  CGRect(x: 0.0, y: 60, width: self.view.frame.size.width, height: self.view.frame.height), configuration: webConfiguration)
         
         self.view.addSubview(webView)
-               view = webView
+               view = webView*/
 
         //
         let myURL = URL(string: urlBase + "?sessionid=\(sessionId)&apikey=\(apikey)&locale=\(locale)")
