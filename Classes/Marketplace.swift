@@ -35,7 +35,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
             self.leaveButton.setTitle( "Return to App", for: .normal)
         } else {
             self.regresarButton.setTitle( "Regresar", for: .normal)
-            self.leaveButton.setTitle( "Salida", for: .normal)
+            self.leaveButton.setTitle( "Salir", for: .normal)
         }
         self.createUIElements()
     }
