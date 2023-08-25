@@ -55,15 +55,15 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     func createLeftTopBar()
     {
         //1. Specify the dimensions
-        let topPadding = view.safeAreaInsets.top
+        let topPadding = self.view.safeAreaLayoutGuide
         let topBarLeft = CGRect(x: 0.0,
                             //y: self.view.frame.maxY - (self.view.frame.height),
                                 y: topPadding,
                             width: self.view.frame.size.width/2,
                             height: self.view.frame.height/CGFloat(sizeMetric))
         
-        let colorView = UIView(frame: topBarLeft)
-        colorView.backgroundColor = .red
+        //let colorView = UIView(frame: topBarLeft)
+        //colorView.backgroundColor = .red
         //2. Provide the frame to the button
         regresarButton.frame = topBarLeft
         
