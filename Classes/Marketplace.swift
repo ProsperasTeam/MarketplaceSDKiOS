@@ -16,7 +16,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     public var urlBase = "https://creditos-web.prosperas.com"
   //  public var urlBase = "https://dev-prosperas.mdhs.mx/creditos_web/"
     
-    private final var sizeMetric : Int = 6
+    private final var sizeMetric : Int = 8
     
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
