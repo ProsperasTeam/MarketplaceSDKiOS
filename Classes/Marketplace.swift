@@ -56,7 +56,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     {
         //1. Specify the dimensions
         let topBarLeft = CGRect(x: 0.0,
-                                y: 0.0,
+                            y: self.view.frame.maxY - (self.view.frame.height),
                             width: self.view.frame.size.width/2,
                             height: self.view.frame.height/CGFloat(sizeMetric))
         
@@ -68,7 +68,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         //3. Customise the view attributes
         regresarButton.addTarget(self, action: #selector(MarketplaceViewController.clickMeTapped), for: UIControl.Event.touchDown)
         
-        
+        regresarButton.backgroundColor = .red
         //4. Add the view to the subview
         self.view.addSubview(regresarButton)
     }
