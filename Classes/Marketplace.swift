@@ -16,7 +16,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     public var urlBase = "https://creditos-web.prosperas.com"
   //  public var urlBase = "https://dev-prosperas.mdhs.mx/creditos_web/"
     
-    private final var sizeMetric : Int = 8
+    private final var sizeMetric : Int = 9
     
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
@@ -56,7 +56,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     {
         //1. Specify the dimensions
         let topBarLeft = CGRect(x: 0.0,
-                            y: self.view.frame.maxY - (self.view.frame.height),
+                                y: 0.0,
                             width: self.view.frame.size.width/2,
                             height: self.view.frame.height/CGFloat(sizeMetric))
         
