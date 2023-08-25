@@ -56,39 +56,80 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     func createLeftTopBar()
     {
         //1. Specify the dimensions
-       
+        //var topPadding : Int = self.view.safeAreaLayoutGuide
+        /*var safeAreaInsets = self.view.safeAreaInsets;
         let topBarLeft = CGRect(x: 0.0,
                             //y: self.view.frame.maxY - (self.view.frame.height),
-                                y: CGFloat(topPadding),
+                                y: safeAreaInsets.top,
                             width: self.view.frame.size.width/2,
-                            height: self.view.frame.height/CGFloat(sizeMetric))
+                            height: self.view.frame.height/CGFloat(sizeMetric))*/
         
         //let colorView = UIView(frame: topBarLeft)
         //colorView.backgroundColor = .red
         //2. Provide the frame to the button
-        regresarButton.frame = topBarLeft
+       // regresarButton.frame = topBarLeft
         
         //3. Customise the view attributes
         regresarButton.addTarget(self, action: #selector(MarketplaceViewController.clickMeTapped), for: UIControl.Event.touchDown)
         
-        regresarButton.backgroundColor = .red
+        regresarButton.translatesAutoresizingMaskIntoConstraints = false
         //4. Add the view to the subview
         self.view.addSubview(regresarButton)
+        
+        let margins = view.layoutMarginsGuide
+         NSLayoutConstraint.activate([
+            regresarButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            //regresarButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+         ])
+        
+        if #available(iOS 11, *) {
+          let guide = view.safeAreaLayoutGuide
+          NSLayoutConstraint.activate([
+            regresarButton.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+            //guide.bottomAnchor.constraint(equalToSystemSpacingBelow: regresarButton.bottomAnchor, multiplier: 1.0)
+           ])
+        } else {
+           let standardSpacing: CGFloat = 8.0
+           NSLayoutConstraint.activate([
+            regresarButton.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: standardSpacing),
+           //bottomLayoutGuide.topAnchor.constraint(equalTo: regresarButton.bottomAnchor, constant: standardSpacing)
+           ])
+        }
     }
     func createRightTopBar()
     {
-        let topBarRight = CGRect(x: self.view.frame.size.width/2,
-                            y: self.view.frame.maxY - (self.view.frame.height),
-                            width: self.view.frame.size.width/2,
-                            height: self.view.frame.height/CGFloat(sizeMetric))
-        
-        //2. Provide the frame to the button
-        leaveButton.frame = topBarRight
-        //3. Customise the view attributes
-        leaveButton.addTarget(self, action: #selector(MarketplaceViewController.clickPrevTapped), for: UIControl.Event.touchDown)
-        
-        //4. Add the view to the subview
-        self.view.addSubview(leaveButton)
+        /* let topBarRight = CGRect(x: self.view.frame.size.width/2,
+                             y: self.view.frame.maxY - (self.view.frame.height),
+                             width: self.view.frame.size.width/2,
+                             height: self.view.frame.height/CGFloat(sizeMetric))
+         
+         //2. Provide the frame to the button
+         leaveButton.frame = topBarRight*/
+         //3. Customise the view attributes
+         leaveButton.addTarget(self, action: #selector(MarketplaceViewController.clickPrevTapped), for: UIControl.Event.touchDown)
+         leaveButton.translatesAutoresizingMaskIntoConstraints = false
+         //4. Add the view to the subview
+         self.view.addSubview(leaveButton)
+         
+         let margins = view.layoutMarginsGuide
+          NSLayoutConstraint.activate([
+             //regresarButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+             leaveButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+          ])
+         
+         if #available(iOS 11, *) {
+           let guide = view.safeAreaLayoutGuide
+           NSLayoutConstraint.activate([
+             leaveButton.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+             //guide.bottomAnchor.constraint(equalToSystemSpacingBelow: regresarButton.bottomAnchor, multiplier: 1.0)
+            ])
+         } else {
+            let standardSpacing: CGFloat = 8.0
+            NSLayoutConstraint.activate([
+             leaveButton.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: standardSpacing),
+            //bottomLayoutGuide.topAnchor.constraint(equalTo: regresarButton.bottomAnchor, constant: standardSpacing)
+            ])
+         }
     }
     func createWebview()
     {
