@@ -56,7 +56,8 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     {
         //1. Specify the dimensions
         let topBarLeft = CGRect(x: 0.0,
-                            y: self.view.frame.maxY - (self.view.frame.height),
+                            //y: self.view.frame.maxY - (self.view.frame.height),
+                                y: self.view.safeAreaLayoutGuide,
                             width: self.view.frame.size.width/2,
                             height: self.view.frame.height/CGFloat(sizeMetric))
         
