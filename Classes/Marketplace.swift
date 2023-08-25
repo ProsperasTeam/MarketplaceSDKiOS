@@ -17,7 +17,6 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
   //  public var urlBase = "https://dev-prosperas.mdhs.mx/creditos_web/"
     
     private final var sizeMetric : Int = 9
-    var topPadding : Int = self.view.safeAreaLayoutGuide
     
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
