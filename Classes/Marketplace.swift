@@ -55,7 +55,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     func createLeftTopBar()
     {
         //1. Specify the dimensions
-        let topPadding = topLayoutGuide.length
+        let topPadding = view.safeAreaInsets.top
         let topBarLeft = CGRect(x: 0.0,
                             //y: self.view.frame.maxY - (self.view.frame.height),
                                 y: topPadding,
