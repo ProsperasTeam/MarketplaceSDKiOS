@@ -17,6 +17,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
   //  public var urlBase = "https://dev-prosperas.mdhs.mx/creditos_web/"
     
     private final var sizeMetric : Int = 9
+    var topPadding : Int = self.view.safeAreaLayoutGuide
     
     var regresarButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
     var leaveButton: UIButton      = UIButton(type: UIButton.ButtonType.roundedRect)
@@ -55,7 +56,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     func createLeftTopBar()
     {
         //1. Specify the dimensions
-        let topPadding = self.view.safeAreaLayoutGuide
+       
         let topBarLeft = CGRect(x: 0.0,
                             //y: self.view.frame.maxY - (self.view.frame.height),
                                 y: CGFloat(topPadding),
