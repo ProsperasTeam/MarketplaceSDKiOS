@@ -32,11 +32,11 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         
         overrideUserInterfaceStyle = .light
         if (locale == "en-rUS"){
-            self.regresarButton.setTitle( "BACK", for: .normal)
-            self.leaveButton.setTitle( "EXIT", for: .normal)
+            self.regresarButton.setTitle( "Back", for: .normal)
+            self.leaveButton.setTitle( "Exit", for: .normal)
         } else {
-            self.regresarButton.setTitle( "REGRESAR", for: .normal)
-            self.leaveButton.setTitle( "SALIR", for: .normal)
+            self.regresarButton.setTitle( "Regresar", for: .normal)
+            self.leaveButton.setTitle( "Salir", for: .normal)
         }
         self.createUIElements()
     }
