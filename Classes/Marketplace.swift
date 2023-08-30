@@ -147,6 +147,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         self.view.addSubview(webView)
         let myURL = URL(string: urlBase + "?sessionid=\(sessionId)&apikey=\(apikey)&locale=\(locale)")
         let myURLRequest:URLRequest = URLRequest(url: myURL!)
+        webView.customUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1"
         webView.load(myURLRequest)
         
         self.view.addSubview(webView)
