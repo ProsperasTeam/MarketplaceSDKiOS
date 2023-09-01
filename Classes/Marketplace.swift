@@ -31,7 +31,9 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         self.modalPresentationStyle = .fullScreen
         
         overrideUserInterfaceStyle = .light
-        if (locale == "en-rUS"){
+        
+        if (locale.starts(with: "en")){
+        //if (locale == "en-rUS"){
             self.regresarButton.setTitle( "BACK", for: .normal)
             self.leaveButton.setTitle( "EXIT", for: .normal)
         } else {
