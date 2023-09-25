@@ -149,6 +149,7 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         let myURLRequest:URLRequest = URLRequest(url: myURL!)
         webView.customUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1"
         webView.load(myURLRequest)
+            .navigationBarBackButtonHidden(true)
         
         self.view.addSubview(webView)
     }
