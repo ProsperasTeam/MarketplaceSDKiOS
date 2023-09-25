@@ -8,13 +8,18 @@
 
 import UIKit
 import WebKit
+import SwiftUI
+
 
 public class MarketplaceViewController: UIViewController, WKUIDelegate {
+    @Binding public var isPresented: Bool
+    
     public var apikey = "f0627e97-48fb-456b-ba05-c20ce8c56105"
     public var locale = "es-rMX"
     public var sessionId = "d/fvIRnSFf2gQslGnCVm/pz7u8K5JTkEFY5w7KJ1rSawvF0tFj68wuL+Zuy2DrEkr8I/dqUj27iW0fg4RyMaU+jsqimIAsTVZnJjjYWpymAwyFRXa7rZyk8nz0jL1DWG"
     public var urlBase = "https://creditos-web.prosperas.com"
   //  public var urlBase = "https://dev-prosperas.mdhs.mx/creditos_web/"
+    
     
     private final var sizeMetric : Int = 9
     
@@ -25,7 +30,11 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
             return .portrait
         }
+    
+    
+    
     public override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.modalPresentationStyle = .fullScreen
@@ -149,9 +158,10 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
         let myURLRequest:URLRequest = URLRequest(url: myURL!)
         webView.customUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1"
         webView.load(myURLRequest)
-            .navigationBarBackButtonHidden(true)
+           
         
         self.view.addSubview(webView)
+        
     }
     func abrirSDK(){
         //my code
@@ -174,11 +184,22 @@ public class MarketplaceViewController: UIViewController, WKUIDelegate {
     {
         abrirSDK()
     }
+    
+    
+   public init(isPresented: Binding<Bool>) {
+            _isPresented = isPresented
+            super.init(nibName: nil, bundle: nil)
+        }
+
+       public required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    
     @objc func clickPrevTapped()
     {
-        dismiss(animated: true, completion: nil)
-        //self.navigationController?.popToRootViewController(animated: true)
-        //self.navigationController?.popViewController(animated: true)
+        print("voy a regresar")
+        isPresented = false // Cambia el valor para cerrar el representable
+
     }
 }
 
